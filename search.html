@@ -1,37 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
 
-  
-  
+    <style>
+      body {
+        background-image: url("https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg"); /* Keep the same background */
+        background-size: cover;
+        background-position: center;
+      }
+    </style>
+  </head>
 
-  <style>
-    body {
-      background-image: url('https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg'); /* Keep the same background */
-      background-size: cover;
-      background-position: center;
-    }
-  </style>
-</head>
-
-<body class="h-screen flex items-center justify-center">
-  <!-- Search Bar -->
-  <div class="flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400">
-    <img
-      src="https://i.ibb.co.com/kcxfB8R/images-1.jpg"
-      alt="Search Icon"
-      class="h-5 w-5"/>
-    <input
-      type="text"
-      placeholder="Search by ..."
-      class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none  "
-    />
-  </div>
-</body>
+  <body class="h-screen flex justify-center py-20">
+    <!-- Search Bar -->
+    <div
+      class="flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400"
+    >
+      <img
+        src="https://i.ibb.co.com/kcxfB8R/images-1.jpg"
+        alt="Search Icon"
+        class="h-5 w-5"
+      />
+      <input
+        type="text"
+        placeholder="Search by ..."
+        class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none"
+        id="searchInput"
+      />
+    </div>
+    <script>
+      // Focus the search input field when the page loads
+      window.onload = function () {
+        document.getElementById("searchInput").focus();
+      };
+    </script>
+  </body>
 </html>
