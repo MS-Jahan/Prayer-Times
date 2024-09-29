@@ -7,8 +7,12 @@
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-     <!-- Favicon -->
-     <link rel="icon" href="https://i.ibb.co.com/Rg9bpMd/pngtree-islamic-logo-png-image-3146076.jpg" type="image/png" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="https://i.ibb.co.com/Rg9bpMd/pngtree-islamic-logo-png-image-3146076.jpg"
+      type="image/png"
+    />
 
     <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -72,8 +76,8 @@
       class="menu fixed top-0 left-0 h-full w-64 bg-gray-800 text-white -translate-x-full"
     >
       <ul class="mt-16 space-y-6 px-4">
-        <li><a href="#" class="block text-xl">Home</a></li>
-        <li><a href="#" class="block text-xl">About</a></li>
+        <li><a href="index.html" class="block text-xl">Home</a></li>
+        <li><a href="Tasbih.html" class="block text-xl">Tasbih</a></li>
         <li><a href="#" class="block text-xl">Services</a></li>
         <li><a href="#" class="block text-xl">Contact</a></li>
       </ul>
@@ -113,9 +117,22 @@
           <div class="text-red-400 text-2xl md:text-4xl">5:00 A.M</div>
         </div>
       </div>
-      <div class="text-[21px] md:text-5xl font-bold bg-white py-2 md:py-3">
-        Dhuhr
+      <div class="grid grid-cols-2 bg-white">
+        <div class="w-16 md:w-full">
+          <img
+            src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp"
+            class="bg-red-400"
+            alt=""
+          />
+        </div>
+        <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
+          <div class="text-[20px] md:text-4xl font-bold md:py-3">Dhuhr</div>
+          <div class="text-red-400 text-2xl md:text-4xl">5:00 A.M</div>
+        </div>
       </div>
+      <!-- <div class="text-[21px] md:text-5xl font-bold bg-white py-2 md:py-3">
+        Dhuhr
+      </div> -->
       <div class="text-[21px] md:text-5xl font-bold bg-white py-2 md:py-3">
         Asr
       </div>
@@ -131,7 +148,6 @@
       </div>
     </div>
 
-    <!-- Search Bar -->
     <!-- Search Bar -->
     <div
       id="searchBar"
@@ -173,7 +189,7 @@
 
       hamburgerBtn.addEventListener("click", function () {
         sidebar.classList.toggle("-translate-x-full");
-        sidebarOpen = !sidebarOpen; // Toggle sidebar state
+        sidebarOpen = !sidebarOpen;
 
         if (sidebarOpen) {
           searchBar.style.left = "17rem"; // 16rem (sidebar width) + 1rem padding

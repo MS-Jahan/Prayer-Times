@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tasbih Counter</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-image: url("https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg");
+        background-size: cover;
+        background-position: center;
+      }
+      .tasbih-gif {
+        width: 200px;
+        height: auto;
+      }
+      .menu {
+        transition: transform 0.3s ease-in;
+      }
+    </style>
+  </head>
+  <body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    
+    <!-- Sidebar Placeholder -->
+    <div id="sidebar-container"></div>
+
+    <!-- Hamburger Button -->
+    <button
+      id="hamburger-btn"
+      class="fixed top-4 left-4 text-white focus:outline-none z-50"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16m-7 6h7"
+        ></path>
+      </svg>
+    </button>
+    <div
+      id="sidebar"
+      class="menu fixed top-0 left-0 h-full w-64 bg-gray-800 text-white -translate-x-full"
+    >
+      <ul class="mt-16 space-y-6 px-4">
+        <li><a href="index.html" class="block text-xl">Home</a></li>
+        <li><a href="Tasbih.html" class="block text-xl">Tasbih</a></li>
+        <li><a href="#" class="block text-xl">Services</a></li>
+        <li><a href="#" class="block text-xl">Contact</a></li>
+      </ul>
+    </div>
+
+    <h1 class="text-2xl md:text-5xl font-bold text-orange-400 mb-4 p-2 rounded-xl bg-gray-500">Tasbih Counter</h1>
+
+    <!-- Tasbih GIF -->
+    <div class="flex justify-center items-center ml-24 md:ml-44">
+      <img
+        id="tasbihGif"
+        class="tasbih-gif w-96"
+        src="https://quranaudio.myislam.org/audio/tasbih%20counter/1920px.gif"
+        decoding="async"
+        alt="Tasbih GIF"
+      />
+    </div>
+
+    <!-- Counter Display -->
+    <div class="mt-4 text-center">
+      <h1 class="text-4xl md:text-8xl" id="counter">0</h1>
+    </div>
+
+    <!-- Buttons -->
+    <div class="mt-4 space-x-4">
+      <button
+        id="incrementBtn"
+        class="px-4 py-2 bg-green-500 text-white rounded-lg text-xl md:text-3xl"
+      >
+        Plus +
+      </button>
+      <button
+        id="resetBtn"
+        class="px-4 py-2 bg-red-500 text-white rounded-lg text-xl md:text-3xl"
+      >
+        Reset
+      </button>
+    </div>
+
+    <script>
+      // Tasbih counter logic
+      let counterValue = 0;
+      const counterDisplay = document.getElementById("counter");
+      const tasbihGif = document.getElementById("tasbihGif");
+
+      function incrementCounter() {
+        counterValue++;
+        counterDisplay.textContent = counterValue; // Update the displayed counter
+
+        tasbihGif.src = ""; // Clear the src and refresh GIF
+        setTimeout(() => {
+          tasbihGif.src = "https://quranaudio.myislam.org/audio/tasbih%20counter/1920px.gif"; // Reset GIF source
+        }, 50);
+      }
+
+      // Reset the counter
+      function resetCounter() {
+        counterValue = 0;
+        counterDisplay.textContent = counterValue;
+      }
+
+      // Event listeners for buttons
+      document.getElementById("incrementBtn").addEventListener("click", incrementCounter);
+      document.getElementById("resetBtn").addEventListener("click", resetCounter);
+    //   hamburger
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const sidebar = document.getElementById("sidebar");
+
+      let sidebarOpen = false;
+
+      hamburgerBtn.addEventListener("click", function () {
+        sidebar.classList.toggle("-translate-x-full");
+        sidebarOpen = !sidebarOpen;
+
+     
+      });
+     
+    </script>
+  </body>
+</html>
