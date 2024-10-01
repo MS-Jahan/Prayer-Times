@@ -156,7 +156,7 @@ function get_location_from_network() {
             console.log(error);
             Toast.fire({
                 icon: "error",
-                title: "Error getting location and city name from network."
+                title: "Error getting location and city name from network. Is your AdBlocker active?"
             });
         });
 }
