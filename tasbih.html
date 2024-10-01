@@ -10,7 +10,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     body {
-      background-image: url("https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg");
+      background-image: url("img/islam-2-min.jpg");
       background-size: cover;
       background-position: center;
     }
@@ -51,7 +51,7 @@
 
   <!-- Tasbih GIF -->
   <div class="flex justify-center items-center ml-24 md:ml-44 -mt-20">
-    <img id="tasbihGif" class="tasbih-gif w-96" src="https://quranaudio.myislam.org/audio/tasbih%20counter/1920px.gif"
+    <img id="tasbihGif" class="tasbih-gif w-96" src="img/1920px.gif"
       decoding="async" alt="Tasbih GIF" />
   </div>
 
@@ -84,7 +84,7 @@
       localStorage.setItem("counterValue", counterValue);
 
       setTimeout(() => {
-        tasbihGif.src = "https://quranaudio.myislam.org/audio/tasbih%20counter/1920px.gif"; // Set the src after 50 milliseconds to play the GIF
+        tasbihGif.src = "img/1920px.gif"; // Set the src after 50 milliseconds to play the GIF
       }, 50);
     }
 
