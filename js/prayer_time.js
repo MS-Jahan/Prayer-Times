@@ -6,15 +6,18 @@ let prayer_index_map = {
     2: 'Dhuhr',
     3: 'Asr',
     4: 'Maghrib',
-    5: 'Isha'
+    5: 'Isha',
+    6: null
 };
 
-function get_prayer_time(adhan) {
+function get_prayer_time(adhan, date) {
     let latitude = get_position().latitude;
     let longitude = get_position().longitude;
     const coordinates = new adhan.Coordinates(latitude, longitude);
     
-    let date = new Date();
+    if(date === undefined) {
+        date = new Date();
+    }
     let params = adhan.CalculationMethod.MuslimWorldLeague();
     params.madhab = adhan.Madhab.Hanafi;
     
@@ -39,7 +42,13 @@ function get_prayer_time(adhan) {
     };
 }
 
-function set_prayer_time(prayer_times) {
+function set_prayer_time(adhan, date) {
+
+    if(date === undefined) {
+        date = new Date();
+    } 
+    let prayer_times = get_prayer_time(adhan, date);
+
     // let sunrise = document.getElementById('sunrise');
     // sunrise.innerText = prayer_times.sunrise;
     let fajr = document.getElementById('fajr');
@@ -56,8 +65,23 @@ function set_prayer_time(prayer_times) {
     asr.innerText = formatTime(prayer_times.asr);
     maghrib.innerText = formatTime(prayer_times.maghrib);
     isha.innerText = formatTime(prayer_times.isha);
-    nextPrayerName.innerText = prayer_times.nextPrayerName;
-    nextPrayerTime.innerText = formatTime(prayer_times.nextPrayerTime);
+    
+    if(prayer_times.nextPrayerName) {
+        document.querySelector('#next-prayer-time-text').style.display = 'block';
+        nextPrayerName.innerText = prayer_times.nextPrayerName;
+        let now = new Date();
+        let timeDifference = (prayer_times.nextPrayerTime - now) / 1000; // time difference in seconds
+
+        let hours = Math.floor(timeDifference / 3600);
+        timeDifference %= 3600;
+        let minutes = Math.floor(timeDifference / 60);
+        timeDifference %= 60;
+        let seconds = Math.floor(timeDifference);
+
+        nextPrayerTime.innerText = `${hours}h ${minutes}m ${seconds}s`;
+    } else {
+        document.querySelector('#next-prayer-time-text').style.display = 'none';
+    }
 }
 
 // Helper function to format Date object to HH:MM AM/PM

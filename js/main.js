@@ -1,4 +1,4 @@
-import { get_location, get_position } from './location.js';
+import { get_location, get_position, set_city } from './location.js';
 import { Toast } from './components.js';
 import { get_prayer_time, set_prayer_time } from './prayer_time.js';
 
@@ -17,15 +17,14 @@ function update_clock_time() {
     clock_second.innerText = seconds;
 }
 
-function if_online() {
-    return navigator.onLine;
-}
-
 // after document is fully loaded
 document.addEventListener('DOMContentLoaded', async function () {
-    setInterval(update_clock_time, 500);
+    setInterval(function() {
+        update_clock_time();
+        set_prayer_time(adhan);
+    }, 500);
 
-    if (if_online()) {
+    if (navigator.onLine) {
         Toast.fire({
             icon: "success",
             title: "Online"
@@ -36,8 +35,9 @@ document.addEventListener('DOMContentLoaded', async function () {
             title: "Offline"
         });
     }
-    
-    
+
+    set_city();
+
     try {
         await get_location();
         if (get_position() === null) {
@@ -46,9 +46,8 @@ document.addEventListener('DOMContentLoaded', async function () {
                 title: "Location not set"
             });
         } else {
-            let prayer_times = get_prayer_time(adhan);
-            console.log(prayer_times);
-            set_prayer_time(prayer_times);}
+            set_prayer_time(adhan);
+        }
     } catch (error) {
         console.log(error);
         Toast.fire({
@@ -57,6 +56,6 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     }
 
-    
+
 });
 

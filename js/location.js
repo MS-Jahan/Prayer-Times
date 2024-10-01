@@ -111,15 +111,41 @@ function show_error(error) {
     }
 }
 
+function set_city() {
+    let city = localStorage.getItem('city');
+    if (!city) {
+        get_location_from_network();
+        city = localStorage.getItem('city');
+    }
+    
+    // if city is still not found   
+    if (!city) {
+        city = 'Unknown';
+    }
+
+    document.getElementById('city_name').innerText = city;
+}   
+
+
 function get_location_from_network() {
+    if(!navigator.onLine) {
+        Toast.fire({
+            icon: "error",
+            title: "Network is offline. Failed to get location and city name via network."
+        });
+        return;
+    }
+
     fetch('https://ipinfo.io/json')
         .then(response => response.json())
         .then(data => {
             let latitude = data.loc.split(',')[0];
             let longitude = data.loc.split(',')[1];
+            let city = data.city;
             // save location to local storage
             localStorage.setItem('latitude', latitude);
             localStorage.setItem('longitude', longitude);
+            localStorage.setItem('city', city);
             Toast.fire({
                 icon: "success",
                 title: "Location found from network."
@@ -129,9 +155,9 @@ function get_location_from_network() {
             console.log(error);
             Toast.fire({
                 icon: "error",
-                title: "Error getting location from network."
+                title: "Error getting location and city name from network."
             });
         });
 }
 
-export { get_location, get_position };
+export { get_location, get_position, set_city };

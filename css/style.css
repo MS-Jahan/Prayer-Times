@@ -41,3 +41,11 @@
     max-width: 600px; /* Limit the width of the container */
     margin-top: 20px;
   }
+
+  #next_wakt_name {
+    color: #000000;
+  }
+
+  #next_wakt_time {
+    color: #000000;
+  }
