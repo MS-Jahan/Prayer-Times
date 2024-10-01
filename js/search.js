@@ -27,10 +27,12 @@ searchInput.addEventListener('input', async function() {
                     });
                     searchInput.value = '';
 
-                    // change location to /
-                    setTimeout(() => {
-                        window.location.href = '/';
-                    }, 1000);
+                    // change location to / if current location is not /
+                    if (window.location.pathname !== '/') {
+                        setTimeout(() => {
+                            window.location.href = '/';
+                        }, 1000);
+                    }
                 });
                 searchResults.appendChild(item);
             });
