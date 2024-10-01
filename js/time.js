@@ -46,6 +46,9 @@ function convertTimeZone(date, tzString) {
 }
 
 function get_timezone() {
+    if(localStorage.getItem('timezone') == "undefined") {
+        localStorage.removeItem('timezone');
+    }
     return localStorage.getItem('timezone') ? localStorage.getItem('timezone') : Intl.DateTimeFormat().resolvedOptions().timeZone;
 }
 

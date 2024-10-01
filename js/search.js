@@ -30,7 +30,7 @@ searchInput.addEventListener('input', async function () {
 
                     change_timezone().then(() => {
                         // change location to / if current location is not /
-                        if (window.location.pathname !== '/') {
+                        if (window.location.pathname !== '/' && window.location.pathname !== '/index.html') {
                             setTimeout(() => {
                                 redirectToIndex();
                             }, 1000);
