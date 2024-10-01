@@ -17,16 +17,21 @@
 }
 
 .clock_text {
-    color: #ffffff; /* Change the clock color to green */
+    color: #ffffff;
+    /* Change the clock color to green */
     font-family: 'Digital7Mono';
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#clock_hour, #clock_min, #clock_sec {
-    width: 2ch; /* Ensure each time segment has a fixed width */
-    text-align: center; /* Center the text within each segment */
+#clock_hour,
+#clock_min,
+#clock_sec {
+    width: 2ch;
+    /* Ensure each time segment has a fixed width */
+    text-align: center;
+    /* Center the text within each segment */
 }
 
 .glass-container {
@@ -36,16 +41,32 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    padding: 1rem; /* Add padding to ensure space around the text */
-    margin: 1rem auto; /* Center the container */
-    max-width: 600px; /* Limit the width of the container */
+    padding: 1rem;
+    /* Add padding to ensure space around the text */
+    margin: 1rem auto;
+    /* Center the container */
+    max-width: 600px;
+    /* Limit the width of the container */
     margin-top: 20px;
-  }
+}
 
-  #next_wakt_name {
+#next_wakt_name {
     color: #000000;
-  }
+}
 
-  #next_wakt_time {
+#next_wakt_time {
     color: #000000;
-  }
+}
+
+#searchContainer {
+    position: relative;
+}
+
+#searchResults {
+    position: absolute;
+    top: 100%;
+    /* Position it directly below the search bar */
+    left: 0;
+    z-index: 1000;
+    /* Ensure it appears above other elements */
+}

@@ -1,4 +1,4 @@
-import { get_location, get_position, set_city } from './location.js';
+import { get_location, get_position, set_city, location_search } from './location.js';
 import { Toast } from './components.js';
 import { get_prayer_time, set_prayer_time } from './prayer_time.js';
 
@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     setInterval(function() {
         update_clock_time();
         set_prayer_time(adhan);
+        set_city();
     }, 500);
 
     if (navigator.onLine) {
@@ -35,8 +36,6 @@ document.addEventListener('DOMContentLoaded', async function () {
             title: "Offline"
         });
     }
-
-    set_city();
 
     try {
         await get_location();
@@ -56,6 +55,53 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     }
 
+    // Search bar functionality
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    searchInput.addEventListener('input', async function() {
+        const query = searchInput.value;
+        if (query.length > 2) {
+            try {
+                const results = await location_search(query);
+                searchResults.innerHTML = '';
+                results.forEach(result => {
+                    const item = document.createElement('div');
+                    item.className = 'p-2 cursor-pointer hover:bg-gray-200';
+                    item.innerText = result.display_name;
+                    item.addEventListener('click', () => {
+                        localStorage.setItem('city', result.display_name);
+                        localStorage.setItem('latitude', result.lat);
+                        localStorage.setItem('longitude', result.lon);
+                        searchResults.classList.add('hidden');
+                        searchInput.value = result.display_name;
+                        Toast.fire({
+                            icon: "success",
+                            title: "Location set to " + result.display_name
+                        });
+                        searchInput.value = '';
+                    });
+                    searchResults.appendChild(item);
+                });
+                searchResults.classList.remove('hidden');
+            } catch (error) {
+                console.log(error);
+                Toast.fire({
+                    icon: "error",
+                    title: "Error fetching search results."
+                });
+            }
+        } else {
+            searchResults.classList.add('hidden');
+        }
+    });
+
+    document.addEventListener('click', function(event) {
+        if (!searchBar.contains(event.target) && !searchResults.contains(event.target)) {
+            searchResults.classList.add('hidden');
+        }
+        searchInput.value = '';
+    });
 
 });
 

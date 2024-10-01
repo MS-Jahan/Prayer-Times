@@ -160,4 +160,27 @@ function get_location_from_network() {
         });
 }
 
-export { get_location, get_position, set_city };
+function location_search(query) {
+    if(!navigator.onLine) {
+        Toast.fire({
+            icon: "error",
+            title: "Network is offline. Failed to search location."
+        });
+        return;
+    }
+
+    // fetch display_name, name, lat, lon from https://nominatim.openstreetmap.org/search.php?q={query}&format=jsonv2 and return
+    return new Promise((resolve, reject) => {
+        fetch(`https://nominatim.openstreetmap.org/search.php?q=${query}&format=jsonv2`)
+            .then(response => response.json())
+            .then(data => {
+                resolve(data);
+            })
+            .catch(error => {
+                console.log(error);
+                reject(error);
+            });
+    });
+}
+
+export { get_location, get_position, set_city, location_search};
