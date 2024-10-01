@@ -30,7 +30,7 @@ searchInput.addEventListener('input', async function() {
                     // change location to / if current location is not /
                     if (window.location.pathname !== '/') {
                         setTimeout(() => {
-                            window.location.href = '/';
+                            redirectToIndex();
                         }, 1000);
                     }
                 });
