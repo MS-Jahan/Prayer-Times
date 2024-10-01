@@ -13,7 +13,13 @@
 
 #clock_sec {
     font-size: 60%;
-    margin-left: 10px;
+    margin-left: 2.5%;
+}
+
+#clock_ampm {
+    font-family: 'Courier New', Courier, monospace;
+    margin-left: 2.5%;
+    font-size: 60%;
 }
 
 .clock_text {

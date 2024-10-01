@@ -5,16 +5,20 @@ import { get_prayer_time, set_prayer_time } from './prayer_time.js';
 let clock_hour = document.getElementById('clock_hour');
 let clock_minute = document.getElementById('clock_min');
 let clock_second = document.getElementById('clock_sec');
+let clock_ampm = document.getElementById('clock_ampm');
 
 function update_clock_time() {
     let date = new Date();
-    let hours = ("0" + date.getHours()).slice(-2)
+    let hours = date.getHours() % 12 || 12; // Convert to 12-hour format
+    hours = ("0" + hours).slice(-2);
     let minutes = ("0" + date.getMinutes()).slice(-2)
     let seconds = ("0" + date.getSeconds()).slice(-2)
+    let ampm = date.getHours() >= 12 ? 'PM' : 'AM';
 
     clock_hour.innerText = hours;
     clock_minute.innerText = minutes;
     clock_second.innerText = seconds;
+    clock_ampm.innerText = ampm;
 }
 
 // after document is fully loaded
