@@ -124,6 +124,7 @@ function set_city() {
     }
 
     document.getElementById('city_name').innerText = city;
+    document.getElementById('city_name').classList.remove('hidden');
 }   
 
 
@@ -183,4 +184,4 @@ function location_search(query) {
     });
 }
 
-export { get_location, get_position, set_city, location_search};
+export { get_location, get_position, set_city, location_search, get_location_from_device};

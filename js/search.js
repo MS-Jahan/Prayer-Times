@@ -1,11 +1,12 @@
 import { location_search } from './location.js';
 import { Toast } from './components.js';
+import { change_timezone } from './time.js';
 
 // Search bar functionality
 const searchInput = document.getElementById('searchInput');
 const searchResults = document.getElementById('searchResults');
 
-searchInput.addEventListener('input', async function() {
+searchInput.addEventListener('input', async function () {
     const query = searchInput.value;
     if (query.length > 2) {
         try {
@@ -27,16 +28,18 @@ searchInput.addEventListener('input', async function() {
                     });
                     searchInput.value = '';
 
-                    // change location to / if current location is not /
-                    if (window.location.pathname !== '/') {
-                        setTimeout(() => {
-                            redirectToIndex();
-                        }, 1000);
-                    }
+                    change_timezone().then(() => {
+                        // change location to / if current location is not /
+                        if (window.location.pathname !== '/') {
+                            setTimeout(() => {
+                                redirectToIndex();
+                            }, 1000);
+                        }
+                    });
                 });
                 searchResults.appendChild(item);
             });
-            if(results.length > 0){
+            if (results.length > 0) {
                 searchResults.classList.remove('hidden');
             } else {
                 searchResults.classList.add('hidden');
@@ -53,7 +56,7 @@ searchInput.addEventListener('input', async function() {
     }
 });
 
-document.addEventListener('click', function(event) {
+document.addEventListener('click', function (event) {
     if (!searchBar.contains(event.target) && !searchResults.contains(event.target)) {
         searchResults.classList.add('hidden');
     }
