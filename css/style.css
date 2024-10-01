@@ -35,9 +35,9 @@
 #clock_min,
 #clock_sec {
     width: 2ch;
-    /* Ensure each time segment has a fixed width */
+   
     text-align: center;
-    /* Center the text within each segment */
+   /
 }
 
 .glass-container {
