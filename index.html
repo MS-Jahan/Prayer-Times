@@ -54,47 +54,49 @@
     </ul>
   </div>
 
-  <div class="text-orange-400">
-    <h1 class="text-xl md:text-5xl font-bold font-playfair text-center py-0 md:py-2">
-      Prayer Times
-    </h1>
-    <p class="text-base md:text-2xl font-bold font-playfair mt-0 md:mt-[20px] text-center">
-      City Name
-    </p>
-    <h1 class="clock_text text-3xl md:text-7xl font-bold font-playfair text-center">
-      <span id="clock_hour">9</span>:<span id="clock_min">30</span><span id="clock_sec">30</span>
-    </h1>
-    <p class="text-base md:text-xl font-bold font-playfair text-center mt-1 md:mt-5">
-      Time left to Next Salah
-    </p>
+  <div class="text-white">
+    <div class="glass-container">
+      <h1 class="text-xl md:text-5xl font-bold text-center py-0 md:py-2">
+        Prayer Times
+      </h1>
+      <p class="text-base md:text-2xl font-bold mt-0 md:mt-[20px] text-center">
+        City Name
+      </p>
+      <h1 class="clock_text text-3xl md:text-7xl font-bold text-center">
+        <span id="clock_hour">9</span>:<span id="clock_min">30</span><span id="clock_sec">30</span>
+      </h1>
+      <p class="text-base md:text-xl font-bold text-center mt-1 md:mt-5">
+        Time left to Next Prayer <span id="next_wakt_name"></span> from <span id="next_wakt_time"></span>
+      </p>
+    </div>
   </div>
   <div
     class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-[1.8px] md:gap-10 ">
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-full">
-        <img src="https://i.ibb.co.com/7gLyhZS/fjar.webp" class="bg-red-400" alt="" />
+        <img src="https://i.ibb.co.com/7gLyhZS/fjar.webp" class="bg-sky-500" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">FAJR</div>
-        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+        <div id="fajr" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
       </div>
     </div>
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-full">
-        <img src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp" class="bg-red-400" alt="" />
+        <img src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp" class="bg-sky-500" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto  md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Dhuhr</div>
-        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+        <div id="dhuhr" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
       </div>
     </div>
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-full">
-        <img src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp" class="bg-red-400" alt="" />
+        <img src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp" class="bg-sky-500" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Asr</div>
-        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+        <div id="asr" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
       </div>
     </div>
 
@@ -103,20 +105,20 @@
     class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[1px] md:mt-10 gap-[1.8px] md:gap-3">
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-44">
-        <img src="https://i.ibb.co.com/CVSb4ns/images.png" class="bg-red-400" alt="" />
+        <img src="https://i.ibb.co.com/CVSb4ns/images.png" class="bg-sky-500" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Maghrib</div>
-        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+        <div id="maghrib" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
       </div>
     </div>
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-44">
-        <img src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp" class="bg-red-400 " alt="" />
+        <img src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp" class="bg-sky-500" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Isha</div>
-        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+        <div id="isha" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
       </div>
     </div>
 
@@ -157,8 +159,9 @@
       window.location.href = "search.html"; // Redirects to the search page
     }
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/adhan.js"></script>
-  <script src="js/main.js"></script>
+  <script type="module"  src="js/main.js"></script>
 </body>
 
 </html>

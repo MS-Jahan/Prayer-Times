@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Digital7Mono';
+    src: url('../fonts/digital-7-mono.ttf') format('truetype');
+}
+
 .menu {
     transition: transform 0.3s ease-in;
 }
@@ -8,9 +13,31 @@
 
 #clock_sec {
     font-size: 30px;
-    margin-left: 5px;
+    margin-left: 10px;
 }
 
 .clock_text {
-    color: #ffffff;
+    color: #ffffff; /* Change the clock color to green */
+    font-family: 'Digital7Mono';
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+#clock_hour, #clock_min, #clock_sec {
+    width: 2ch; /* Ensure each time segment has a fixed width */
+    text-align: center; /* Center the text within each segment */
+}
+
+.glass-container {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem; /* Add padding to ensure space around the text */
+    margin: 1rem auto; /* Center the container */
+    max-width: 600px; /* Limit the width of the container */
+    margin-top: 20px;
+  }
