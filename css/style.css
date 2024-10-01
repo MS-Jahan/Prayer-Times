@@ -1,0 +1,16 @@
+.menu {
+    transition: transform 0.3s ease-in;
+}
+
+.search-bar {
+    transition: left 0.3s ease-in;
+}
+
+#clock_sec {
+    font-size: 30px;
+    margin-left: 5px;
+}
+
+.clock_text {
+    color: #ffffff;
+}

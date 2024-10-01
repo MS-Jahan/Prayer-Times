@@ -1,160 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Prayer Times</title>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      href="https://i.ibb.co.com/Rg9bpMd/pngtree-islamic-logo-png-image-3146076.jpg"
-      type="image/png"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Prayer Times</title>
 
-    <!-- Google Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Favicon -->
+  <link rel="icon" href="https://i.ibb.co.com/Rg9bpMd/pngtree-islamic-logo-png-image-3146076.jpg" type="image/png" />
 
-    <!-- Tailwind CSS custom configuration -->
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              playfair: ["Playfair Display", "serif"],
-            },
-            backgroundImage: {
-              "prayer-bg": "url('https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg')",
-            },
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS custom configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            playfair: ["Playfair Display", "serif"],
+          },
+          backgroundImage: {
+            "prayer-bg": "url('https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg')",
           },
         },
-      };
-    </script>
+      },
+    };
+  </script>
 
-    <style>
-      .menu {
-        transition: transform 0.3s ease-in;
-      }
-      .search-bar {
-        transition: left 0.3s ease-in;
-      }
-    </style>
-  </head>
+  <link rel="stylesheet" href="css/style.css">
+</head>
 
-  <body class="bg-prayer-bg bg-cover bg-center h-screen">
-    <!-- Hamburger menu button -->
-    <button
-      id="hamburger-btn"
-      class="fixed top-4 left-4 text-white focus:outline-none z-50"
-    >
-      <svg
-        class="w-8 h-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M4 6h16M4 12h16m-7 6h7"
-        ></path>
-      </svg>
-    </button>
+<body class="bg-prayer-bg bg-cover bg-center h-screen">
+  <!-- Hamburger menu button -->
+  <button id="hamburger-btn" class="fixed top-4 left-4 text-white focus:outline-none z-50">
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+    </svg>
+  </button>
 
-    <!-- Sidebar menu -->
-    <div
-      id="sidebar"
-      class="menu fixed top-0 left-0 h-full w-64 bg-gray-800 text-white -translate-x-full"
-    >
-      <ul class="mt-16 space-y-6 px-4">
-        <li><a href="index.html" class="block text-xl">Home</a></li>
-        <li><a href="Tasbih.html" class="block text-xl">Tasbih</a></li>
-        <li><a href="#" class="block text-xl">Services</a></li>
-        <li><a href="#" class="block text-xl">Contact</a></li>
-      </ul>
+  <!-- Sidebar menu -->
+  <div id="sidebar" class="menu fixed top-0 left-0 h-full w-64 bg-gray-800 text-white -translate-x-full">
+    <ul class="mt-16 space-y-6 px-4">
+      <li><a href="index.html" class="block text-xl">Home</a></li>
+      <li><a href="Tasbih.html" class="block text-xl">Tasbih</a></li>
+      <li><a href="#" class="block text-xl">Services</a></li>
+      <li><a href="#" class="block text-xl">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="text-orange-400">
+    <h1 class="text-xl md:text-5xl font-bold font-playfair text-center py-0 md:py-2">
+      Prayer Times
+    </h1>
+    <p class="text-base md:text-2xl font-bold font-playfair mt-0 md:mt-[20px] text-center">
+      City Name
+    </p>
+    <h1 class="clock_text text-3xl md:text-7xl font-bold font-playfair text-center">
+      <span id="clock_hour">9</span>:<span id="clock_min">30</span><span id="clock_sec">30</span>
+    </h1>
+    <p class="text-base md:text-xl font-bold font-playfair text-center mt-1 md:mt-5">
+      Time left to Next Salah
+    </p>
+  </div>
+  <div
+    class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-[1.8px] md:gap-10 ">
+    <div class="grid grid-cols-2 bg-white">
+      <div class="w-14 md:w-full">
+        <img src="https://i.ibb.co.com/7gLyhZS/fjar.webp" class="bg-red-400" alt="" />
+      </div>
+      <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
+        <div class="text-[18px] md:text-4xl font-bold md:py-3">FAJR</div>
+        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 bg-white">
+      <div class="w-14 md:w-full">
+        <img src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp" class="bg-red-400" alt="" />
+      </div>
+      <div class="flex-col items-center justify-center mx-auto  md:mt-5">
+        <div class="text-[18px] md:text-4xl font-bold md:py-3">Dhuhr</div>
+        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+      </div>
+    </div>
+    <div class="grid grid-cols-2 bg-white">
+      <div class="w-14 md:w-full">
+        <img src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp" class="bg-red-400" alt="" />
+      </div>
+      <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
+        <div class="text-[18px] md:text-4xl font-bold md:py-3">Asr</div>
+        <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
+      </div>
     </div>
 
-    <div class="text-orange-400">
-      <h1
-        class="text-xl md:text-5xl font-bold font-playfair text-center py-0 md:py-2"
-      >
-        Prayer Times
-      </h1>
-      <p class="text-base md:text-2xl font-bold font-playfair mt-0 md:mt-[20px] text-center">
-        City Name
-      </p>
-      <h1 class="text-3xl md:text-7xl font-bold font-playfair text-center">
-        9:30
-      </h1>
-      <p
-        class="text-base md:text-xl font-bold font-playfair text-center mt-1 md:mt-5"
-      >
-        Time left to Next Salah
-      </p>
-    </div>
-    <div
-      class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-[1.8px] md:gap-10 "
-    >
-      <div class="grid grid-cols-2 bg-white">
-        <div class="w-14 md:w-full">
-          <img
-            src="https://i.ibb.co.com/7gLyhZS/fjar.webp"
-            class="bg-red-400"
-            alt=""
-          />
-        </div>
-        <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">FAJR</div>
-          <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 bg-white">
-        <div class="w-14 md:w-full">
-          <img
-            src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp"
-            class="bg-red-400"
-            alt=""
-          />
-        </div>
-        <div class="flex-col items-center justify-center mx-auto  md:mt-5">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Dhuhr</div>
-          <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
-        </div>
-      </div>
-      <div class="grid grid-cols-2 bg-white">
-        <div class="w-14 md:w-full">
-          <img
-            src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp"
-            class="bg-red-400"
-            alt=""
-          />
-        </div>
-        <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Asr</div>
-          <div class="text-red-400 text-xl md:text-2xl md:text-4xl">5:00 A.M</div>
-        </div>
-      </div>
-
-    </div>
-    <div
-      class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[1px] md:mt-10 gap-[1.8px] md:gap-3"
-    >
+  </div>
+  <div
+    class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[1px] md:mt-10 gap-[1.8px] md:gap-3">
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-44">
-        <img
-          src="https://i.ibb.co.com/CVSb4ns/images.png"
-          class="bg-red-400"
-          alt=""
-        />
+        <img src="https://i.ibb.co.com/CVSb4ns/images.png" class="bg-red-400" alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Maghrib</div>
@@ -163,11 +112,7 @@
     </div>
     <div class="grid grid-cols-2 bg-white">
       <div class="w-14 md:w-44">
-        <img
-          src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp"
-          class="bg-red-400 "
-          alt=""
-        />
+        <img src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp" class="bg-red-400 " alt="" />
       </div>
       <div class="flex-col items-center justify-center mx-auto mt-0 md:mt-5">
         <div class="text-[18px] md:text-4xl font-bold md:py-3">Isha</div>
@@ -175,61 +120,45 @@
       </div>
     </div>
 
-    </div>
+  </div>
 
-    <!-- Search Bar -->
-    <div
-      id="searchBar"
-      class="search-bar hidden md:flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400 fixed top-5 left-20"
-    >
-      <img
-        src="https://i.ibb.co.com/kcxfB8R/images-1.jpg"
-        alt="Search Icon"
-        class="h-5 w-5"
-      />
-      <input
-        type="text"
-        placeholder="Search by ..."
-        id="searchInput"
-        class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none"
-      />
-    </div>
+  <!-- Search Bar -->
+  <div id="searchBar"
+    class="search-bar hidden md:flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400 fixed top-5 left-20">
+    <img src="https://i.ibb.co.com/kcxfB8R/images-1.jpg" alt="Search Icon" class="h-5 w-5" />
+    <input type="text" placeholder="Search by ..." id="searchInput"
+      class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none" />
+  </div>
 
-    <!-- Search Icon for small screens -->
-    <button
-      id="search-icon"
-      class="fixed top-4 right-4 text-white z-50 md:hidden"
-      onclick="redirectToSearch()"
-    >
-      <img
-        src="https://i.ibb.co.com/kcxfB8R/images-1.jpg"
-        alt="Search Icon"
-        class="h-8 w-8"
-      />
-    </button>
+  <!-- Search Icon for small screens -->
+  <button id="search-icon" class="fixed top-4 right-4 text-white z-50 md:hidden" onclick="redirectToSearch()">
+    <img src="https://i.ibb.co.com/kcxfB8R/images-1.jpg" alt="Search Icon" class="h-8 w-8" />
+  </button>
 
-    <!-- JavaScript to control the menu -->
-    <script>
-      const hamburgerBtn = document.getElementById("hamburger-btn");
-      const sidebar = document.getElementById("sidebar");
-      const searchBar = document.getElementById("searchBar");
+  <!-- JavaScript to control the menu -->
+  <script>
+    const hamburgerBtn = document.getElementById("hamburger-btn");
+    const sidebar = document.getElementById("sidebar");
+    const searchBar = document.getElementById("searchBar");
 
-      let sidebarOpen = false;
+    let sidebarOpen = false;
 
-      hamburgerBtn.addEventListener("click", function () {
-        sidebar.classList.toggle("-translate-x-full");
-        sidebarOpen = !sidebarOpen;
+    hamburgerBtn.addEventListener("click", function () {
+      sidebar.classList.toggle("-translate-x-full");
+      sidebarOpen = !sidebarOpen;
 
-        if (sidebarOpen) {
-          searchBar.style.left = "17rem"; // 16rem (sidebar width) + 1rem padding
-        } else {
-          searchBar.style.left = "5rem"; // Reset to original position
-        }
-      });
-      function redirectToSearch() {
-        window.location.href = "search.html"; // Redirects to the search page
+      if (sidebarOpen) {
+        searchBar.style.left = "17rem"; // 16rem (sidebar width) + 1rem padding
+      } else {
+        searchBar.style.left = "5rem"; // Reset to original position
       }
-    </script>
-    <script src="Adhan.js"></script>
-  </body>
+    });
+    function redirectToSearch() {
+      window.location.href = "search.html"; // Redirects to the search page
+    }
+  </script>
+  <script src="js/adhan.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
