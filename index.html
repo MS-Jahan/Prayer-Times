@@ -26,7 +26,7 @@
             playfair: ["Playfair Display", "serif"],
           },
           backgroundImage: {
-            "prayer-bg": "url('https://i.ibb.co.com/bXPQ3Rt/islam-2.jpg')",
+            "prayer-bg": "url('img/islam-2-min.jpg')",
           },
         },
       },
@@ -63,13 +63,21 @@
         class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none" />
     </div>
     <!-- Container for search results -->
-    <div id="searchResults" class="hidden absolute bg-white rounded-md shadow-lg mt-1 w-72 max-h-60 overflow-y-auto">
+    <div id="searchResults"
+      class="hidden fixed bg-white rounded-b-md rounded-br-md shadow-lg mt-1 w-72 max-h-60 left-20 top-11 overflow-y-auto">
     </div>
   </div>
 
+
   <!-- Search Icon for small screens -->
   <button id="search-icon" class="fixed top-4 right-4 text-white z-50 md:hidden" onclick="redirectToSearch()">
-    <img src="https://i.ibb.co.com/kcxfB8R/images-1.jpg" alt="Search Icon" class="h-8 w-8" />
+    <svg alt="Search Icon" class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+      stroke-width="1.5" stroke="currentColor" class="size-6">
+      <path stroke-linecap="round" stroke-linejoin="round"
+        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+    </svg>
+
+    <!-- <img src="https://i.ibb.co.com/kcxfB8R/images-1.jpg" alt="Search Icon" class="h-8 w-8" /> -->
   </button>
 
   <main>
@@ -90,53 +98,53 @@
       </div>
     </div>
     <div
-      class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-[1.8px] md:gap-10 ">
-      <div class="grid grid-cols-3 bg-white">
-        <div class="w-14 md:w-28">
-          <img src="https://i.ibb.co.com/7gLyhZS/fjar.webp" class="bg-sky-500" alt="">
+      class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-2 md:gap-10">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="https://i.ibb.co.com/7gLyhZS/fjar.webp" class="bg-sky-500 w-full h-auto" alt="">
         </div>
-        <div class="flex-col items-center justify-center mx-auto col-span-2">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">FAJR</div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">FAJR</div>
           <div id="fajr" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:35 AM</div>
         </div>
       </div>
-      <div class="grid grid-cols-3 bg-white">
-        <div class="w-14 md:w-28">
-          <img src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp" class="bg-sky-500" alt="">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="https://i.ibb.co.com/yyvtbpj/Islamic-34-512.webp" class="bg-sky-500 w-full h-auto" alt="">
         </div>
-        <div class="flex-col items-center justify-center mx-auto col-span-2">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Dhuhr</div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">Dhuhr</div>
           <div id="dhuhr" class="text-red-400 text-xl md:text-2xl md:text-4xl">11:49 AM</div>
         </div>
       </div>
-      <div class="grid grid-cols-3 bg-white">
-        <div class="w-14 md:w-28">
-          <img src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp" class="bg-sky-500" alt="">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="https://i.ibb.co.com/3rkzDnR/Fajr-512.webp" class="bg-sky-500 w-full h-auto" alt="">
         </div>
-        <div class="flex-col items-center justify-center mx-auto mt-0 col-span-2">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Asr</div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">Asr</div>
           <div id="asr" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:06 PM</div>
         </div>
       </div>
 
     </div>
     <div
-      class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[1px] md:mt-10 gap-[1.8px] md:gap-10">
-      <div class="grid grid-cols-3 bg-white">
-        <div class="w-14 md:w-28">
-          <img src="https://i.ibb.co.com/CVSb4ns/images.png" class="bg-sky-500" alt="">
+      class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[1px] md:mt-10 gap-2 md:gap-10 mt-2.5">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="https://i.ibb.co.com/CVSb4ns/images.png" class="bg-sky-500 w-full h-auto" alt="">
         </div>
-        <div class="flex-col items-center justify-center mx-auto mt-0 col-span-2">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Maghrib</div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">Maghrib</div>
           <div id="maghrib" class="text-red-400 text-xl md:text-2xl md:text-4xl">5:46 PM</div>
         </div>
       </div>
-      <div class="grid grid-cols-3 bg-white">
-        <div class="w-14 md:w-28">
-          <img src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp" class="bg-sky-500" alt="">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="https://i.ibb.co.com/P9S6T7z/night-1-icon-icons.webp" class="bg-sky-500 w-full h-auto" alt="">
         </div>
-        <div class="flex-col items-center justify-center mx-auto mt-0 col-span-2">
-          <div class="text-[18px] md:text-4xl font-bold md:py-3">Isha</div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">Isha</div>
           <div id="isha" class="text-red-400 text-xl md:text-2xl md:text-4xl">6:56 PM</div>
         </div>
       </div>

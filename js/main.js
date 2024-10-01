@@ -25,12 +25,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         set_city();
     }, 500);
 
-    if (navigator.onLine) {
-        Toast.fire({
-            icon: "success",
-            title: "Online"
-        });
-    } else {
+    if (!navigator.onLine) {
         Toast.fire({
             icon: "info",
             title: "Offline"
@@ -55,53 +50,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         });
     }
 
-    // Search bar functionality
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-
-    searchInput.addEventListener('input', async function() {
-        const query = searchInput.value;
-        if (query.length > 2) {
-            try {
-                const results = await location_search(query);
-                searchResults.innerHTML = '';
-                results.forEach(result => {
-                    const item = document.createElement('div');
-                    item.className = 'p-2 cursor-pointer hover:bg-gray-200';
-                    item.innerText = result.display_name;
-                    item.addEventListener('click', () => {
-                        localStorage.setItem('city', result.display_name);
-                        localStorage.setItem('latitude', result.lat);
-                        localStorage.setItem('longitude', result.lon);
-                        searchResults.classList.add('hidden');
-                        searchInput.value = result.display_name;
-                        Toast.fire({
-                            icon: "success",
-                            title: "Location set to " + result.display_name
-                        });
-                        searchInput.value = '';
-                    });
-                    searchResults.appendChild(item);
-                });
-                searchResults.classList.remove('hidden');
-            } catch (error) {
-                console.log(error);
-                Toast.fire({
-                    icon: "error",
-                    title: "Error fetching search results."
-                });
-            }
-        } else {
-            searchResults.classList.add('hidden');
-        }
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!searchBar.contains(event.target) && !searchResults.contains(event.target)) {
-            searchResults.classList.add('hidden');
-        }
-        searchInput.value = '';
-    });
+    
 
 });
 
