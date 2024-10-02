@@ -1,4 +1,4 @@
-const CACHE = "v1.0.0";
+const CACHE = "v1.0.1";
 
 // Import Workbox libraries
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
@@ -19,7 +19,8 @@ workbox.routing.registerRoute(
       request.destination === 'document' || // HTML
       request.destination === 'style' ||    // CSS
       request.destination === 'script' ||   // JavaScript
-      request.destination === 'image'       // Images (jpg, png, webp, gif)
+      request.destination === 'image'  ||     // Images (jpg, png, webp, gif)
+      request.destination === 'font'    // Fonts
     );
   },
   new workbox.strategies.CacheFirst({
