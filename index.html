@@ -9,14 +9,16 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Favicon -->
-  <link rel="icon" href="img/Rg9bpMd/pngtree-islamic-logo-png-image-3146076.jpg" type="image/png" />
+  <link rel="icon" href="img/kaaba.png" type="image/png" />
 
   <!-- Google Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,900&display=swap"
     rel="stylesheet" />
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/style.css">
+  <script src="manup.min.js"></script>
 
   <!-- Tailwind CSS custom configuration -->
   <script>
@@ -33,6 +35,31 @@
       },
     };
   </script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      if (navigator.serviceWorker.controller) {
+        console.log("An active service worker found, no need to register");
+      } else {
+        // Register the service worker
+        navigator.serviceWorker
+          .register("/pwabuilder-sw.js", {
+            scope: "/"
+          })
+          .then(function (reg) {
+            console.log("Service worker has been registered for scope: " + reg.scope);
+          });
+      }
+    }
+  </script>
+
+  <script type="module">
+    import './pwaupdate.js';
+
+    const el = document.createElement('pwa-update');
+    document.body.appendChild(el);
+  </script>
+
 </head>
 
 <body class="bg-prayer-bg bg-cover bg-center h-screen flex items-center justify-center px-2 md:px-0">
@@ -46,7 +73,8 @@
           City Name
         </p>
         <h1 class="clock_text text-3xl md:text-7xl font-bold text-center">
-          <span id="clock_hour">9</span>:<span id="clock_min">30</span><span id="clock_sec">30</span><span id="clock_ampm">AM</span>
+          <span id="clock_hour">9</span>:<span id="clock_min">30</span><span id="clock_sec">30</span><span
+            id="clock_ampm">AM</span>
         </h1>
         <p id="next-prayer-time-text" class="text-base md:text-xl font-bold text-center mt-1 md:mt-5">
           Time left to Next Prayer <span id="next_wakt_name"></span> - <span id="next_wakt_time"></span>
@@ -128,8 +156,10 @@
   <div id="searchContainer" class="relative">
     <div id="searchBar"
       class="search-bar hidden md:flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400 fixed top-5 left-20">
-      <svg alt="Search Icon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-        <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      <svg alt="Search Icon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
       </svg>
       <input type="text" placeholder="Search by ..." id="searchInput"
         class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none" />

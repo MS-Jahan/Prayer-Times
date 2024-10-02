@@ -9,6 +9,9 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Favicon -->
+  <link rel="icon" href="img/kaaba.png" type="image/png" />
+
   <style>
     body {
       background-image: url('img/islam-2-min.jpg');
@@ -25,10 +28,10 @@
     <div id="searchBar"
       class="search-bar flex items-center gap-2 bg-white rounded-full h-10 w-72 px-2 ring-1 ring-gray-300 transition hover:ring-gray-400">
       <svg alt="Search Icon" class="h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-      stroke-width="1.5" stroke="currentColor" class="size-6">
-      <path stroke-linecap="round" stroke-linejoin="round"
-        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-    </svg>
+        stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
       <input type="text" placeholder="Search by ..." id="searchInput"
         class="flex-1 border-none outline-none text-sm text-gray-700 placeholder-gray-500 focus:outline-none" />
     </div>
@@ -42,7 +45,7 @@
     window.onload = function () {
       document.getElementById("searchInput").focus();
     };
-  
+
     function redirectToIndex() {
       document.body.classList.add('fade-out');
       document.body.classList.remove('fade-in');
@@ -50,7 +53,7 @@
         window.location.href = "index.html"; // Redirects to the index page
       }, 500); // Match the duration of the CSS transition
     }
-  
+
     document.addEventListener('DOMContentLoaded', function () {
       document.body.classList.add('fade-in');
       document.body.classList.remove('fade-out');
