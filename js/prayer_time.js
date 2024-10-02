@@ -1,4 +1,4 @@
-import {get_position} from './location.js';
+import {get_position, get_location} from './location.js';
 
 let prayer_index_map = {
     0: 'Fajr',
@@ -11,6 +11,11 @@ let prayer_index_map = {
 };
 
 function get_prayer_time(adhan, date) {
+    if(get_position() === null) {
+        get_location();
+        return;
+    }
+
     let latitude = get_position().latitude;
     let longitude = get_position().longitude;
     const coordinates = new adhan.Coordinates(latitude, longitude);
