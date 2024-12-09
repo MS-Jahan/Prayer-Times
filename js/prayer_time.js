@@ -29,9 +29,19 @@ function get_prayer_time(adhan, date) {
     let prayer_times = new adhan.PrayerTimes(coordinates, date, params);
 
     let current = prayer_times.currentPrayer();
+    console.log("current", current);
     let next = prayer_times.nextPrayer();
     let nextPrayerTime = prayer_times.timeForPrayer(next);
     
+    console.log("prayer_times", prayer_times);
+
+    // Calculate forbidden times
+    let forbiddenTimes = {
+        afterFajr: prayer_times.fajr,
+        sunrise: prayer_times.sunrise,
+        afterAsr: prayer_times.asr,
+        sunset: prayer_times.maghrib
+    };
     
     // return prayer_times as an object
     return {
@@ -43,7 +53,8 @@ function get_prayer_time(adhan, date) {
         isha: prayer_times.isha,
         current: current,
         nextPrayerName: prayer_index_map[next],
-        nextPrayerTime: nextPrayerTime
+        nextPrayerTime: nextPrayerTime,
+        forbiddenTimes: forbiddenTimes
     };
 }
 
@@ -54,8 +65,10 @@ function set_prayer_time(adhan, date) {
     } 
     let prayer_times = get_prayer_time(adhan, date);
 
-    // let sunrise = document.getElementById('sunrise');
-    // sunrise.innerText = prayer_times.sunrise;
+    console.log("get_prayer_time", prayer_times);
+
+    let sunrise = document.getElementById('sunrise');
+    sunrise.innerText = formatTime(prayer_times.sunrise);
     let fajr = document.getElementById('fajr');
     let dhuhr = document.getElementById('dhuhr');
     let asr = document.getElementById('asr');
@@ -71,10 +84,40 @@ function set_prayer_time(adhan, date) {
     maghrib.innerText = formatTime(prayer_times.maghrib);
     isha.innerText = formatTime(prayer_times.isha);
     
-    if(prayer_times.nextPrayerName) {
+    let now = new Date();
+    let forbiddenMessage = null;
+    let forbiddenEndTime = null;
+
+    if (now >= prayer_times.sunrise && now < dateByAddingMinutes(prayer_times.sunrise, 15)) {
+        forbiddenMessage = "Forbidden time: Until 15 minutes after Sunrise";
+        forbiddenEndTime = dateByAddingMinutes(prayer_times.sunrise, 15);
+    }
+    else if (now >= dateByAddingMinutes(prayer_times.dhuhr, -6) && now < prayer_times.dhuhr) {
+        forbiddenMessage = "Forbidden time: 6 minutes before Dhuhr";
+        forbiddenEndTime = dateByAddingMinutes(prayer_times.dhuhr, -6);
+    }
+    else if (now >= dateByAddingMinutes(prayer_times.maghrib, -10) && now < prayer_times.maghrib) {
+        forbiddenMessage = "Forbidden time: 10 minutes before Maghrib";
+        forbiddenEndTime = dateByAddingMinutes(prayer_times.maghrib, -10);
+    }
+
+    if (forbiddenMessage) {
+        document.querySelector('#norm_message').textContent = forbiddenMessage;
+        document.querySelector('#next-prayer-time-text').style.display = 'block';
+        // nextPrayerName.innerText = forbiddenMessage;
+        let timeDifference = (forbiddenEndTime - now) / 1000; // time difference in seconds
+
+        let hours = Math.floor(timeDifference / 3600);
+        timeDifference %= 3600;
+        let minutes = Math.floor(timeDifference / 60);
+        timeDifference %= 60;
+        let seconds = Math.floor(timeDifference);
+
+        nextPrayerTime.innerText = `${hours}h ${minutes}m ${seconds}s`;
+    } else if (prayer_times.nextPrayerName) {
+        document.querySelector('#norm_message').textContent = "Time left to Next Prayer";
         document.querySelector('#next-prayer-time-text').style.display = 'block';
         nextPrayerName.innerText = prayer_times.nextPrayerName;
-        let now = new Date();
         let timeDifference = (prayer_times.nextPrayerTime - now) / 1000; // time difference in seconds
 
         let hours = Math.floor(timeDifference / 3600);
@@ -99,6 +142,11 @@ function formatTime(date) {
     minutes = minutes < 10 ? '0' + minutes : minutes;
     let strTime = hours + ':' + minutes + ' ' + ampm;
     return strTime;
+}
+
+// Helper function to add minutes to a date
+function dateByAddingMinutes(date, minutes) {
+    return new Date(date.getTime() + minutes * 60000);
 }
 
 export { get_prayer_time, set_prayer_time };

@@ -77,19 +77,29 @@
             id="clock_ampm">AM</span>
         </h1>
         <p id="next-prayer-time-text" class="text-base md:text-xl font-bold text-center mt-1 md:mt-5">
-          Time left to Next Prayer <span id="next_wakt_name"></span> - <span id="next_wakt_time"></span>
+          <span id="norm_message">Time left to Next Prayer</span> <span id="next_wakt_name"></span> - <span id="next_wakt_time"></span>
         </p>
       </div>
     </div>
+    
     <div
       class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-2 md:gap-10">
+      <div class="flex items-center justify-center bg-white">
+        <div class="w-14 md:w-28 flex-shrink-0">
+          <img src="img/fajr.png" class="bg-sky-500 w-full h-auto" alt="">
+        </div>
+        <div class="flex-grow text-center md:px-5">
+          <div class="text-lg md:text-4xl font-bold md:py-3">FAJR</div>
+          <div id="fajr" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:35 AM</div>
+        </div>
+      </div>
       <div class="flex items-center justify-center bg-white">
         <div class="w-14 md:w-28 flex-shrink-0">
           <img src="img/fjar.webp" class="bg-sky-500 w-full h-auto" alt="">
         </div>
         <div class="flex-grow text-center md:px-5">
-          <div class="text-lg md:text-4xl font-bold md:py-3">FAJR</div>
-          <div id="fajr" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:35 AM</div>
+          <div class="text-lg md:text-4xl font-bold md:py-3">Sunrise</div>
+          <div id="sunrise" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:35 AM</div>
         </div>
       </div>
       <div class="flex items-center justify-center bg-white">
@@ -101,6 +111,9 @@
           <div id="dhuhr" class="text-red-400 text-xl md:text-2xl md:text-4xl">11:49 AM</div>
         </div>
       </div>
+    </div>
+    <div
+      class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 justify-center items-center text-center mt-1 md:mt-10 gap-2 md:gap-10">
       <div class="flex items-center justify-center bg-white">
         <div class="w-14 md:w-28 flex-shrink-0">
           <img src="img/Fajr-512.webp" class="bg-sky-500 w-full h-auto" alt="">
@@ -110,10 +123,6 @@
           <div id="asr" class="text-red-400 text-xl md:text-2xl md:text-4xl">4:06 PM</div>
         </div>
       </div>
-
-    </div>
-    <div
-      class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 justify-center items-center text-center mt-[8px] md:mt-10 gap-2 md:gap-10">
       <div class="flex items-center justify-center bg-white">
         <div class="w-14 md:w-28 flex-shrink-0">
           <img src="img/images.png" class="bg-sky-500 w-full h-auto" alt="">
